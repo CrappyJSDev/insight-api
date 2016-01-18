@@ -43,7 +43,7 @@ exports.index = function(req, res) {
   if (usdRate === 0 || currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
-    _request('http://coinmarketcap-nexuist.rhcloud.com/api/dgb', function(err, data) {
+    _request('http://coinmarketcap-nexuist.rhcloud.com/api/flo', function(err, data) {
       if (!err) usdRate = parseFloat(JSON.parse(data).price.usd);
 
       res.jsonp({

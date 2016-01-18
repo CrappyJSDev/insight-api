@@ -1,45 +1,9 @@
 [
-   {   
-      "poolName":"MinersPoolEU",
-      "url":"https://www.miners-pool.eu/",
-      "searchStrings":[
-         "MinersPoolEU"
-      ]   
-   }, 
-   { 
-  
-      "poolName":"DigiHash",
-      "url":"http://digihash.co",
-      "searchStrings":[
-         "digihash.co"
-      ]   
-   }, 
-   {
-      "poolName":"CryptoPoolMining.com",
-      "url":"https://www.cryptopoolmining.com",
-      "searchStrings":[
-         "cryptopoolmining.com"
-      ]
-   },
-   {
-      "poolName":"The Blocks Factory",
-      "url":"https://dgb-sha.theblocksfactory.com",
-      "searchStrings":[
-         "theblocksfactory.com"
-      ]
-   },
    {
       "poolName":"CoinMinePW",
       "url":"http://www.coinmine.pw/",
       "searchStrings":[
          "CoinMinePW"
-      ]
-   },
-   {
-      "poolName":"Omarg's Pools",
-      "url":"http://www.omargpools.ca/",
-      "searchStrings":[
-         "Omarg's Pools"
       ]
    }
 ]

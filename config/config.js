@@ -25,8 +25,8 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
   port = '3000';
-  b_port = '14022';
-  p2p_port = '12024';
+  b_port = '7313';
+  p2p_port = '7312';
 } else {
   env = 'testnet';
   db = home + '/testnet';
@@ -56,9 +56,9 @@ var isWin = /^win/.test(process.platform);
 var isMac = /^darwin/.test(process.platform);
 var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
-  if (isWin) dataDir = '%APPDATA%\\Digibyte\\';
-  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Digibyte/';
-  if (isLinux) dataDir = process.env.HOME + '/.digibyte/';
+  if (isWin) dataDir = '%APPDATA%\\florincoin\\';
+  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/florincoin/';
+  if (isLinux) dataDir = process.env.HOME + '/.florincoin/';
 }
 dataDir += network === 'testnet' ? 'testnet3' : '';
 
@@ -69,12 +69,12 @@ var ignoreCache = process.env.INSIGHT_IGNORE_CACHE || 0;
 var bitcoindConf = {
   protocol: process.env.BITCOIND_PROTO || 'http',
   user: process.env.BITCOIND_USER || 'user',
-  pass: process.env.BITCOIND_PASS || 'pass',
+  pass: process.env.BITCOIND_PASS || 'password',
   host: process.env.BITCOIND_HOST || '127.0.0.1',
   port: process.env.BITCOIND_PORT || b_port,
   p2pPort: process.env.BITCOIND_P2P_PORT || p2p_port,
   p2pHost: process.env.BITCOIND_P2P_HOST || process.env.BITCOIND_HOST || '127.0.0.1',
-  dataDir: dataDir,
+  //dataDir: dataDir,
   // DO NOT CHANGE THIS!
   disableAgent: true
 };
