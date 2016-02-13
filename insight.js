@@ -103,13 +103,17 @@ if (!config.disableP2pSync) {
   peerSync.run();
 }
 
+
 // historic_sync process
 var historicSync = new HistoricSync({
   shouldBroadcastSync: true
 });
 peerSync.historicSync = historicSync;
 
+var CronJob = require('cron').CronJob;
+
 if (!config.disableHistoricSync) {
+new CronJob('*/15 * * * * *', function() {
   historicSync.start({}, function(err) {
     if (err) {
       var txt = 'ABORTED with error: ' + err.message;
@@ -117,9 +121,9 @@ if (!config.disableHistoricSync) {
     }
     if (peerSync) peerSync.allowReorgs = true;
   });
+}, null, true, 'America/Los_Angeles');
 } else
 if (peerSync) peerSync.allowReorgs = true;
-
 
 
 // socket.io

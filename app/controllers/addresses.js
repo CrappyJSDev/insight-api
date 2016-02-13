@@ -69,7 +69,13 @@ exports.utxo = function(req, res, next) {
       if (err)
         return common.handleErrors(err, res);
       else {
-        return res.jsonp(a.unspent);
+	var arr = [];
+	for (var i = 0; i < a.unspent.length; i++){
+	  if(a.unspent[i].confirmations > 0){
+	    arr.push(a.unspent[i]);
+	  }
+	}
+        return res.jsonp(arr);
       }
     }, {onlyUnspent:1, ignoreCache: req.param('noCache')});
   }
@@ -82,7 +88,13 @@ exports.multiutxo = function(req, res, next) {
     async.each(as, function(a, callback) {
       a.update(function(err) {
         if (err) callback(err);
-        utxos = utxos.concat(a.unspent);
+	var arr = [];
+	for (var i = 0; i < a.unspent.length; i++){
+	  if(a.unspent[i].confirmations > 0){
+	    arr.push(a.unspent[i]);
+	  }
+	}
+        utxos = arr.concat(a.unspent);
         callback();
       }, {onlyUnspent:1, ignoreCache: req.param('noCache')});
     }, function(err) { // finished callback
